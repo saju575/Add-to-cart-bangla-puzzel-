@@ -23,6 +23,7 @@ let products = [];
 /** Cart items  */
 let cart = [];
 
+/* Cart sidebar open and close */
 cartIcon.addEventListener("click", () => {
   cartContainer.classList.toggle("active");
 });
@@ -32,7 +33,7 @@ closeCart.addEventListener("click", () => {
 });
 
 /**
- * Add Product to html container
+ * render all products to html
  */
 const addProductToHTML = () => {
   if (products.length > 0) {
@@ -65,7 +66,7 @@ const addProductToHTML = () => {
           <button
             
             class="defaultBgColor text-white px-4 py-2 rounded-md w-full addToCartBtn"
-            onclick="addToCartHandler(event)"
+            onclick="addToCart(${product.id},event)"
           >
             Add to Cart
           </button>
@@ -79,17 +80,10 @@ const addProductToHTML = () => {
   disableAddToCartBtn();
 };
 
-const addToCartHandler = (e) => {
-  let id_of_product = e.target.parentElement.dataset.id;
-
-  // add item to product cart
-  addToCart(id_of_product);
-};
-
 /**
-Add product to cart array
+Add new product to cart array
 */
-const addToCart = (product_id) => {
+const addToCart = (product_id, e) => {
   let isAvailableProductIdIntoCart = cart.findIndex(
     (value) => value.product_id == product_id
   );
@@ -105,7 +99,7 @@ const addToCart = (product_id) => {
 };
 
 /**  
-    add product cart info to localstorage
+    add product cart array info to localstorage
 */
 const addCartToLocalStroage = () => {
   localStorage.setItem(LOCALSTORAGE_CART, JSON.stringify(cart));
@@ -179,8 +173,11 @@ const handleChangeCartProduct = (product_id, action, e) => {
   addCartToLocalStroage();
 };
 
-/* 
-    change cart Product actions
+/**  
+    change  actions of product cart item
+     - increaing
+     - decreasing
+     - delete
 */
 
 const changeCartAction = (product_id, action) => {
@@ -211,7 +208,7 @@ const changeCartAction = (product_id, action) => {
 };
 
 /* 
-   add to cart btn disable or not
+   render add to cart btn disable or not
 */
 const disableAddToCartBtn = () => {
   addToCartBtns.forEach((ele) => {
@@ -228,6 +225,7 @@ const disableAddToCartBtn = () => {
   });
 };
 
+/* initial load of all product */
 const initApp = async () => {
   //fetch product data
   const respose = await fetch("./products.json");
