@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Cart</title>
+    <!-- box icons  -->
+    <link
+      href="https://unpkg.com/boxicons@2.1.2/css/boxicons.min.css"
+      rel="stylesheet"
+    />
+
+    <!-- tailwind connection -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <!-- HEADER  -->
+    <header class="border-b px-3">
+      <!-- NAV  -->
+      <div class="container mx-auto py-5">
+        <div class="justify-between items-center flex">
+          <a href="#" class="text-xl uppercase"><span>E</span>Commerce</a>
+          <!-- CART ICON  -->
+          <div id="cart-icon" class="icon-cart">
+            <i class="bx bx-shopping-bag text-2xl cursor-pointer"></i>
+            <span id="total-cart-item">0</span>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Product section -->
+    <section class="py-8 px-3">
+      <div class="container mx-auto">
+        <div
+          class="listProduct grid lg:grid-cols-4 md:grid-cols-3 sm:grid-cols-2 grid-cols-1 mx-auto gap-10"
+        ></div>
+      </div>
+    </section>
+
+    <!-- Cart items sidebar -->
+    <div id="cart" class="cart bg-slate-300">
+      <div class="mt-4">
+        <div class="flex justify-between px-3 items-center">
+          <h1>Shopping Cart</h1>
+          <!-- close btn -->
+
+          <i class="bx bx-x text-2xl" id="cart-close"></i>
+        </div>
+
+        <!-- Cart items -->
+        <div id="listCart" class="listCart mt-4 flex flex-col gap-7"></div>
+
+        <br />
+        <hr />
+
+        <div class="flex flex-col justify-center items-end gap-3 pr-6 mt-2">
+          <h2 class="text-xl text-[#333]">
+            Total Products: <span id="total-products">0</span>
+          </h2>
+          <h2 class="text-xl text-[#333]">
+            Total Items: <span id="total-items">0</span>
+          </h2>
+          <h2 class="text-xl text-[#333]">
+            Total Price: <span id="total-price">0</span>$
+          </h2>
+        </div>
+      </div>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
