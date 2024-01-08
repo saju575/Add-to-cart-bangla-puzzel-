@@ -1,6 +1,6 @@
 # Add to Cart item with html, css , javascript
 
-## Live link https://github.com/saju575/Add-to-cart-bangla-puzzel-
+## Live link https://add-to-cart-bangla-puzzel.vercel.app
 
 ## Used Technology
 
